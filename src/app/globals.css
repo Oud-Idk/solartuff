@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+    /* Fonts */
+    --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+    /* Primary (brand orange button) */
+    --color-primary: #e28409;
+    --color-primary-text: #000000;
+    --color-primary-glow: rgba(0, 0, 0, 0.4);
+
+    /* Brand (header) */
+    --color-brand: #e28409;
+    --color-brand-hover: #a16207;
+
+    /* Background & Surface */
+    --color-bg: oklch(0.1 0 0);
+    --color-bg-overlay: oklch(0 0 0 / 0.75);
+    --color-bg-overlay-heavy: oklch(0 0 0 / 0.90);
+    --color-surface: oklch(1 0 0 / 0.05);
+    --color-surface-hover: oklch(1 0 0 / 0.02);
+    --color-surface-subtle: oklch(1 0 0 / 0.02);
+    --color-surface-active: oklch(1 0 0 / 0.90);
+
+    /* Text */
+    --color-text: #ffffff;
+    --color-text-secondary: #d1d1d1;
+    --color-text-muted: #9c9c9c;
+    --color-text-faint: #6b6b6b;
+
+    /* Border */
+    --color-border: oklch(1 0 0 / 0.10);
+    --color-border-subtle: oklch(1 0 0 / 0.20);
+
+    /* Accent: Success (green) */
+    --color-success: #22c55e;
+    --color-success-strong: #16a34a;
+    --color-success-bg: oklch(0.723 0.219 149 / 0.20);
+    --color-success-shadow: oklch(0.30 0.10 149 / 0.20);
+
+    /* Accent: Info (blue) */
+    --color-info: #93c5fd;
+    --color-info-bg: oklch(0.623 0.214 259 / 0.10);
+    --color-info-border: oklch(0.623 0.214 259 / 0.20);
+
+    /* Accent: Danger (red) */
+    --color-danger: #f87171;
+    --color-danger-bg: oklch(0.637 0.237 27 / 0.20);
+
+    /* Accent: Warning (amber) */
+    --color-warning: #fbbf24;
+    --color-warning-bg: oklch(0.696 0.17 70 / 0.20);
+
+    /* Accent: Social */
+    --color-social-blue: #60a5fa;
+    --color-social-blue-bg: oklch(0.546 0.188 264 / 0.20);
+    --color-social-pink: #f472b6;
+    --color-social-pink-bg: oklch(0.637 0.237 340 / 0.20);
+
+    /* Interactive states */
+    --color-nav-active: oklch(0 0 0 / 0.10);
+    --color-nav-hover: oklch(0 0 0 / 0.05);
+    --color-hover-light: oklch(1 0 0 / 0.10);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.neutral.600') theme('colors.neutral.800');
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: theme('colors.black');
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: theme('colors.slate.400');
+    border-radius: 20px;
+    border: 2px solid theme('colors.slate.100');
+}
