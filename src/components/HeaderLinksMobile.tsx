@@ -1,18 +1,32 @@
+'use client';
+
 import NavLink from './NavLinks';
+import { homeButtonTranslations } from "@/constants/translations";
+import { useParams } from "next/navigation";
+import { X } from "lucide-react";
+import { MouseEvent } from "react";
 
 interface HeaderLinksMobileProps {
-  onLinkClick?: () => void; 
-  hoverState?: string; 
+    hoverState?: string;
 }
 
-export default function HeaderLinks({ onLinkClick, hoverState }: HeaderLinksMobileProps) {
+export default function HeaderLinksMobile({ hoverState }: HeaderLinksMobileProps) {
+    const { lang } = useParams();
+    const t = homeButtonTranslations[lang as keyof typeof homeButtonTranslations] || homeButtonTranslations.en;
+    const stopPropagation = (e: MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+    }
+
     return (
-        <div className='flex flex-col gap-3'>
-            <NavLink hoverState={hoverState} href="/" onClick={onLinkClick}>Home</NavLink>
-            <NavLink hoverState={hoverState} href="/about-solartuff" onClick={onLinkClick}>About Solartuff</NavLink>
-            <NavLink hoverState={hoverState} href="/product-knowledge" onClick={onLinkClick}>Product Knowledge</NavLink>
-            <NavLink hoverState={hoverState} href="/product-selection" onClick={onLinkClick}>Product Selection</NavLink>
-            <NavLink hoverState={hoverState} href="/contact-us" onClick={onLinkClick}>Contact Us</NavLink>
-        </div>
+        <>
+            <button className="fixed left-5 top-5"><X/></button>
+            <div className="relative z-50 flex flex-col gap-3" onClick={stopPropagation}>
+                <NavLink hoverState={hoverState} href="/">Home</NavLink>
+                <NavLink hoverState={hoverState} href="/about-solartuff">{t.aboutSolartuff}</NavLink>
+                <NavLink hoverState={hoverState} href="/product-knowledge">{t.productKnowledge}</NavLink>
+                <NavLink hoverState={hoverState} href="/product-selection">{t.productSelection}</NavLink>
+                <NavLink hoverState={hoverState} href="/contact-us">{t.contactUs}</NavLink>
+            </div>
+        </>
     );
-};
+}
