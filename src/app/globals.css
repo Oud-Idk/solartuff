@@ -64,9 +64,19 @@
     --color-hover-light: oklch(1 0 0 / 0.10);
 }
 
+@layer base {
+    :root {
+        color-scheme: dark;
+    }
+
+    html {
+        background-color: #000000;
+    }
+}
+
 * {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.neutral.600') theme('colors.neutral.800');
+    scrollbar-color: var(--color-text-faint) #000000;
 }
 
 /* Chrome, Edge, and Safari */
@@ -75,11 +85,11 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: theme('colors.black');
+    background: #000000;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: theme('colors.slate.400');
+    background-color: var(--color-text-faint);
     border-radius: 20px;
-    border: 2px solid theme('colors.slate.100');
+    border: 2px solid #000000;
 }
