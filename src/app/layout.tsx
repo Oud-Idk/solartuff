@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import { MobileMenuProvider } from "@/components/MobileMenuProvider";
 import "./globals.css";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} font-sans w-full h-dvh bg-[url(/background.jpeg)] bg-no-repeat bg-cover ring-0 overscroll-none`}>
-        {children}
+        <MobileMenuProvider>{children}</MobileMenuProvider>
       </body>
     </html>
   );
