@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build || (cat /tmp/next-panic-*.log && exit 1)",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
