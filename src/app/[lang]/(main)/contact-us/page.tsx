@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageContent from "@/components/PageContent";
 import { Phone, Clock, AtSign, ExternalLink } from "lucide-react";
 import React from "react";
@@ -129,6 +130,12 @@ const translations: Record<"en" | "id", TranslationContent> = {
         socialUser: "@solartuff"
     }
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: "en" | "id" }> }): Promise<Metadata> {
+    const { lang } = await params;
+
+    return { title: translations[lang].header };
+}
 
 export default async function ContactSupport({ params }: { params: Promise<{ lang: "en" | "id" }> }) {
     const { lang } = await params;
