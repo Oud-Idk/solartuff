@@ -204,7 +204,7 @@ export default async function ContactSupport({ params }: { params: Promise<{ lan
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="strict-origin-when-cross-origin"
-                        className="w-full"
+                        className="w-full grayscale invert-100 contrast"
                     />
                 </div>
 

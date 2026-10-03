@@ -11,17 +11,18 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
                     src={images.solartuff}
                     alt="Logo"
                     loading="eager"
-                    className='w-5/6 h-auto max-w-125 lg:w-140 lg:max-w-200 m-8 lg:ml-20'
+                    className='h-auto max-w-125 hero-rise hero-step-0 min-w-4/12 m-8 lg:ml-30 '
                 />
                 <Image
                     src={images.sus316b}
                     alt="Logo"
                     loading="eager"
-                    className='h-48 w-auto shrink lg:mr-10 lg:block hidden'
+                    className='h-48 w-auto shrink lg:mr-10 lg:block hidden hero-rise hero-step-1'
                 />
             </div>
 
-            <div className="grow flex items-center justify-center lg:hidden py-4">
+            {/* Matches the desktop panel's step so the entrance reads the same on either breakpoint. */}
+            <div className='grow flex items-center justify-center lg:hidden py-4 hero-rise hero-step-2'>
                 <Image
                     src={images.promotionReduced}
                     alt="Promotion Reduced"
@@ -30,23 +31,23 @@ export default function Home({ params }: { params: Promise<{ lang: string }> }) 
                 />
             </div>
 
-            <div className='flex-row flex w-full lg:justify-between items-center gap-30 xl:gap-50 2xl:gap-65 pb-16 2xl:pb-20 px-8 2xl:px-16 justify-center'>
-                <div className='hidden lg:block flex-1 min-w-0 max-w-300'>
+            <div className='flex-row flex w-full lg:justify-between items-center gap-30 xl:gap-50 2xl:gap-50 pb-16 2xl:pb-20 px-8 2xl:px-16 justify-center'>
+                <div className='hidden lg:block flex-1 min-w-0 max-w-380 hero-rise hero-step-2'>
                     <Image
                         src={images.promotion}
                         alt="Promotion"
                         loading="eager"
-                        width={1200}
+                        width={1300}
                         className='w-full h-auto object-contain'
                     />
                 </div>
 
                 <HomeButtons
                     params={params}
-                    className="w-full max-w-150 flex flex-col gap-3 lg:w-1/4 shrink-0 self-end"
+                    className="w-full max-w-200 flex flex-col gap-3 lg:w-17/64 shrink-0 self-end"
                 />
             </div>
-            <LanguageSwitcher className='fixed bottom-5 right-5'/>
+            <LanguageSwitcher className='fixed bottom-5 right-5 hero-rise hero-step-8' />
         </main>
     );
 }

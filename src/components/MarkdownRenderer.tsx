@@ -11,7 +11,7 @@ interface MarkdownRendererProps {
 const markdownComponents: Components = {
   h1: ({ children, ...props }) => (
     <h1
-      className="text-2xl sm:text-3xl font-bold mt-6 mb-4 text-brand first:mt-0"
+      className="text-[2em] sm:text-4xl font-bold mt-6 mb-4 text-brand first:mt-0"
       {...props}
     >
       {children}

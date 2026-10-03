@@ -8,10 +8,10 @@ export default async function HomeButtons({ params, className }: { params: Promi
 
   return (
     <div className={className}>
-      <Button href="about-solartuff">{t.aboutSolartuff}</Button>
-      <Button href="product-knowledge">{t.productKnowledge}</Button>
-      <Button href="product-selection">{t.productSelection}</Button>
-      <Button href="contact-us">{t.contactUs}</Button>
+      <Button href="about-solartuff" className="hero-rise hero-step-4">{t.aboutSolartuff}</Button>
+      <Button href="product-knowledge" className="hero-rise hero-step-5">{t.productKnowledge}</Button>
+      <Button href="product-selection" className="hero-rise hero-step-6">{t.productSelection}</Button>
+      <Button href="contact-us" className="hero-rise hero-step-7">{t.contactUs}</Button>
     </div>
   );
 }

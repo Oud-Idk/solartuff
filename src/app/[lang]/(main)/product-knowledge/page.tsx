@@ -19,7 +19,7 @@ export default async function ProductKnowledge({ params }: { params: Promise<{ l
 
     return <PageContent header={t.productKnowledge}>
         <SimpleMarkdown content={localeText.firstPart} />
-        <div className="flex flex-row lg:gap-8 justify-between items-start">
+        <div className="flex flex-row lg:gap-8 justify-between items-start mb-10">
             <Image
                 src={images.structure}
                 width={1200}
@@ -32,7 +32,7 @@ export default async function ProductKnowledge({ params }: { params: Promise<{ l
                 src={images.sus316b}
                 width={600}
                 alt="SUS316B"
-                className="relative -ml-38 lg:ml-0 w-[45%] lg:w-auto lg:flex-1 lg:basis-1/4 min-w-0 max-w-40 lg:max-w-80 h-auto self-start -mt-16"
+                className="relative -ml-30 md:-ml-38 lg:ml-0 w-[45%] lg:w-auto lg:flex-1 lg:basis-1/4 min-w-0 max-w-40 lg:max-w-80 h-auto self-end -mb-10"
             />
         </div>
         <SimpleMarkdown content={localeText.secondPart} />
