@@ -2,6 +2,7 @@
 
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
+import { captureScroll } from '@/lib/scroll-preservation'
 
 const languages = [
     { code: 'en', name: 'EN' },
@@ -22,11 +23,19 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
         segments[1] = newLocale
         const newPath = segments.join('/')
 
-        router.push(newPath)
+        captureScroll(pathname)
+
+        // Switching locale remounts the page, which resets every scroll container
+        // to zero. `scroll: false` keeps the window where it is; ScrollRestoration
+        // puts the inner `lg` scroll containers back.
+        router.push(newPath, { scroll: false })
     }
 
     return (
-        <div className={twMerge("flex items-center gap-2 p-1 bg-bg-overlay backdrop-blur-md rounded-full border border-border-subtle", className)}
+        <div className={twMerge(
+            "inline-flex w-fit flex-none self-center items-center gap-2 p-0.5 md:p-1 bg-bg-overlay backdrop-blur-md rounded-full border border-border-subtle",
+            className
+        )}
             onClick={(e) => e.stopPropagation()}>
             {languages.map((lang) => {
                 const isActive = currentLang === lang.code
@@ -34,7 +43,7 @@ export default function LanguageSwitcher({ className }: { className?: string }) 
                     <button
                         key={lang.code}
                         onClick={() => handleLanguageChange(lang.code)}
-                        className={`px-2 py-1 rounded-full xl:text-sm font-medium transition-all duration-200 ${
+                        className={`px-2 py-1 rounded-full text-xs lg:text-md font-medium transition-all duration-200 ${
                             isActive
                                 ? 'bg-surface-active text-primary-text shadow-lg'
                                 : 'text-text hover:bg-hover-light'

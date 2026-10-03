@@ -1,12 +1,13 @@
 import { ReactNode } from 'react';
 import ZoomableImage from './ZoomableImage';
+import { images } from '@/assets';
 
 export default function PageContent({header, children}: {header: string, children: ReactNode}) {
     return (
         <main className="flex flex-col lg:grid lg:grid-cols-5 flex-1 w-full overflow-y-auto lg:overflow-hidden">
             <div className='flex flex-col w-full items-center justify-center px-[10%] py-5 lg:col-span-2 lg:bg-transparent'>
                 <ZoomableImage
-                    src="/triple-shield.png"
+                    src={images.tripleShield}
                     alt="Triple Shield"
                     className='w-3/4 max-w-60 lg:w-[min(100%,60vh)] lg:max-w-120 lg:px-[10%] hover:scale-110 transition-transform'
                 />
@@ -15,17 +16,15 @@ export default function PageContent({header, children}: {header: string, childre
                 </h1>
             </div>
 
-            <div className="bg-bg w-full lg:col-span-3 flex-1 flex flex-col lg:h-full lg:overflow-y-auto shadow-[0_0_2rem_2.5rem_theme(--color-bg)] mt-6 lg:mt-0">
+            <div data-scroll-root="content" className="bg-bg w-full lg:col-span-3 flex-1 flex flex-col lg:h-full lg:overflow-y-auto mt-6 lg:mt-0">
                 <div className="w-full px-8 lg:px-12 py-8 lg:my-auto">
                     {children}
 
                     <div className="flex justify-center pt-6">
                         <ZoomableImage
-                            src="/certificate.png"
+                            src={images.certificate}
                             alt="Certificates"
-                            width={400}
-                            height={400}
-                            className="hover:opacity-80 transition-opacity"
+                            className="w-full max-w-100 hover:opacity-80 transition-opacity"
                         />
                     </div>
                 </div>

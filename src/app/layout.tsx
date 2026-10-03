@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { MobileMenuProvider } from "@/components/MobileMenuProvider";
+import { ScrollRestoration } from "@/lib/scroll-preservation";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} font-sans w-full h-dvh bg-[url(/background.jpeg)] bg-no-repeat bg-cover bg-center ring-0 overscroll-none`}>
         <MobileMenuProvider>{children}</MobileMenuProvider>
+        <ScrollRestoration />
       </body>
     </html>
   );

@@ -1,17 +1,15 @@
 'use client';
 
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { useState, useEffect } from 'react';
 
 interface ZoomableImageProps {
-    src: string;
+    src: StaticImageData;
     alt: string;
-    width?: number;
-    height?: number;
     className?: string;
 }
 
-export default function ZoomableImage({ src, alt, width, height, className }: ZoomableImageProps) {
+export default function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     // Close on "Esc" key press
@@ -29,10 +27,8 @@ export default function ZoomableImage({ src, alt, width, height, className }: Zo
             <div className={`cursor-zoom-in ${className}`} onClick={() => setIsOpen(true)}>
                 <Image 
                     src={src} 
-                    width={width || 400} 
-                    height={height || 400} 
                     alt={alt} 
-                    className="w-full h-full object-contain"
+                    className="w-full h-auto object-contain"
                 />
             </div>
 

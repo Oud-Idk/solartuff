@@ -34,7 +34,7 @@ export default function ProductComparison({ header, products, listContent }: Pro
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-surface">
                             <tr>
-                                <th className="px-4 py-3 text-sm font-bold border uppercase tracking-wider text-text border-border">
+                                <th className="px-4 py-3 text-sm font-bold border uppercase tracking-wider border-r-6 text-text border-border">
                                     Specification
                                 </th>
                                 {products.map((product) => (
@@ -50,7 +50,7 @@ export default function ProductComparison({ header, products, listContent }: Pro
                         <tbody className="divide-y divide-border">
                             {specLabels.map((label, rowIndex) => (
                                 <tr key={label} className="hover:bg-surface-hover transition-colors">
-                                    <td className="px-4 py-3 text-sm font-semibold border text-text border-border">
+                                    <td className="px-4 py-3 text-sm font-semibold border border-r-6 text-text border-border">
                                         {label}
                                     </td>
                                     {products.map((product) => (

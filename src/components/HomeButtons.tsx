@@ -6,8 +6,6 @@ export default async function HomeButtons({ params, className }: { params: Promi
 
   const t = homeButtonTranslations[lang as keyof typeof homeButtonTranslations] || homeButtonTranslations.en;
 
-  console.log(lang)
-
   return (
     <div className={className}>
       <Button href="about-solartuff">{t.aboutSolartuff}</Button>
